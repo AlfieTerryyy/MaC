@@ -12,6 +12,7 @@ patterns = {
     r"tell me a joke": "Why did the chicken join a band? Because it had the drumsticks!",
     r"hello": "Hi there!",
     r"goodbye|bye": "Goodbye! See you soon!",
+    r"i am batman": "im a night stalking crime fighting vigilante and a heavy metal rapping machine",
 }
 
 #--------------------- Ensure DB exists
