@@ -19,7 +19,7 @@ MAC is a speech-driven assistant built with Flask that listens to your voice, un
 
 ```bash
 git clone https://github.com/AlfieTerry/MaC
-cd mac
+cd mac-main
 ```
 
 ### 2. Create and activate a virtual environment
