@@ -97,6 +97,3 @@ mac/
 MIT © 2025 Alfie Terry
 ```
 
----
-
-Let me know if you want it to include setup for Windows, Docker, systemd, or GitHub Pages hosting!
