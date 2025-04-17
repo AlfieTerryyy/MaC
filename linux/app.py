@@ -5,7 +5,7 @@ import os
 
 app = Flask(__name__)
 
-# Load patterns from JSON
+#-------- Load patterns from JSON
 with open('patterns.json') as f:
     patterns = json.load(f)
 
