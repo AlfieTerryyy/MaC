@@ -13,8 +13,7 @@ patterns = {
     r"hello": "Hi there!",
     r"goodbye|bye": "Goodbye! See you soon!",
     r"i am batman": "im a night stalking crime fighting vigilante and a heavy metal rapping machine",
-    r"i love you": "thankyou, thankyou so much, i love you too",
-    r"mac i love you": "thankyou dad, i love you, thankyou for creating me",
+    r"love you.*": "thankyou, thankyou so much, i love you too",
 }
 
 #--------------------- Ensure DB exists
