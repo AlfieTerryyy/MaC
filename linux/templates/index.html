@@ -1,93 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>MAC | Mimic and Communicate</title>
   <style>
-    :root {
-      --green: #00ff90;
-      --dark-bg: #121212;
-      --highlight-bg: #1e1e1e;
-      --light-text: #d4d4d4;
-    }
-
     body {
-      background-color: var(--dark-bg);
-      color: var(--light-text);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px;
+      background: #121212;
+      color: #d4d4d4;
+      font-family: sans-serif;
+      padding: 2em;
     }
-
-    h1 {
-      color: var(--green);
-      font-size: 2.2rem;
-    }
-
     button {
-      background: var(--green);
-      color: black;
-      padding: 15px 25px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
+      padding: 10px 20px;
       margin-top: 20px;
+      font-size: 1.2em;
+      background-color: #00ff90;
+      border: none;
+      cursor: pointer;
     }
-
     button:hover {
-      background: #00e47a;
-    }
-
-    #transcript {
-      margin-top: 30px;
-      font-size: 1.2rem;
-      color: #ccc;
-      text-align: center;
-      max-width: 600px;
+      background-color: #00e47a;
     }
   </style>
 </head>
 <body>
-  <h1>MAC | <small>Mimic and Communicate</small></h1>
-  <p>Click below and speak to MAC</p>
-
-  <button onclick="startListening()">🎙️ Speak</button>
-
-  <p id="transcript">Waiting for input...</p>
+  <h1>🎙️ MAC: Mimic and Communicate</h1>
+  <p>Press the button and speak.</p>
+  <button onclick="startRecognition()">Speak to MAC</button>
+  <p id="result"></p>
+  <p id="response"></p>
 
   <script>
-    function startListening() {
-      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-      if (!SpeechRecognition) {
-        alert("Your browser doesn't support speech recognition.");
-        return;
-      }
-
-      const recognition = new SpeechRecognition();
+    function startRecognition() {
+      const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
       recognition.lang = 'en-US';
-      recognition.interimResults = false;
+      recognition.start();
 
       recognition.onresult = function(event) {
-        const spoken = event.results[0][0].transcript;
-        document.getElementById('transcript').innerText = "You said: " + spoken;
+        const text = event.results[0][0].transcript;
+        document.getElementById("result").innerText = "You said: " + text;
 
         fetch('/listen', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ text: spoken })
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ text })
+        })
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById("response").innerText = "MAC: " + data.response;
         });
       };
-
-      recognition.onerror = function(err) {
-        console.error(err);
-        document.getElementById('transcript').innerText = "Error: " + err.error;
-      };
-
-      recognition.start();
     }
   </script>
 </body>
