@@ -10,7 +10,7 @@ patterns = {
     r"how are you": "I'm doing great!",
     r"what.*name": "I'm MAC, Mimic and Communicate.",
     r"tell me a joke": "Why did the chicken join a band? Because it had the drumsticks!",
-    r"hello": "Hi there!",
+    r"hello|hi|hallo|greetings": "Greetings human!",
     r"goodbye|bye": "Goodbye! See you soon!",
     r"love you.*": "thankyou, thankyou so much, i love you too",
 }
