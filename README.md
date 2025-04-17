@@ -1,4 +1,5 @@
 # 🎙️ MAC — Mimic and Communicate
+## ~ Windows version not tested and under construction
 
 MAC is a speech-driven assistant built with Flask that listens to your voice, understands patterns, and responds with spoken replies using eSpeak. It runs entirely on your Linux machine.
 
