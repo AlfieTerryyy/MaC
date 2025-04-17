@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MAC | Mimic and Communicate</title>
+  <style>
+    :root {
+      --green: #00ff90;
+      --dark-bg: #121212;
+      --highlight-bg: #1e1e1e;
+      --light-text: #d4d4d4;
+    }
+
+    body {
+      background-color: var(--dark-bg);
+      color: var(--light-text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+    }
+
+    h1 {
+      color: var(--green);
+      font-size: 2.2rem;
+    }
+
+    button {
+      background: var(--green);
+      color: black;
+      padding: 15px 25px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background: #00e47a;
+    }
+
+    #transcript {
+      margin-top: 30px;
+      font-size: 1.2rem;
+      color: #ccc;
+      text-align: center;
+      max-width: 600px;
+    }
+  </style>
+</head>
+<body>
+  <h1>MAC | <small>Mimic and Communicate</small></h1>
+  <p>Click below and speak to MAC</p>
+
+  <button onclick="startListening()">🎙️ Speak</button>
+
+  <p id="transcript">Waiting for input...</p>
+
+  <script>
+    function startListening() {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRecognition) {
+        alert("Your browser doesn't support speech recognition.");
+        return;
+      }
+
+      const recognition = new SpeechRecognition();
+      recognition.lang = 'en-US';
+      recognition.interimResults = false;
+
+      recognition.onresult = function(event) {
+        const spoken = event.results[0][0].transcript;
+        document.getElementById('transcript').innerText = "You said: " + spoken;
+
+        fetch('/listen', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ text: spoken })
+        });
+      };
+
+      recognition.onerror = function(err) {
+        console.error(err);
+        document.getElementById('transcript').innerText = "Error: " + err.error;
+      };
+
+      recognition.start();
+    }
+  </script>
+</body>
+</html>
