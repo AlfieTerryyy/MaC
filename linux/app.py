@@ -7,17 +7,17 @@ app = Flask(__name__)
 
 #--------------------- Response patterns
 patterns = {
-    r"how are you": "I'm doing great!",
-    r"what.*name": "I'm MAC, Mimic and Communicate.",
-    r"tell me a joke": "Why did the chicken join a band? Because it had the drumsticks!",
-    r"hello|hi|hallo|greetings": "Greetings human!",
-    r"goodbye|bye": "Goodbye! See you soon!",
-    r"love you.*": "thankyou, thankyou so much, i love you too",
-    r".*batman": "im a night stalking crime fighting vigilante and a heavy metal rapping machine",
+    r"\b(how are you)\b": "I'm doing great!",
+    r"\b(what.*name)\b": "I'm MAC, Mimic and Communicate.",
+    r"\b(tell me a joke)\b": "Why did the chicken join a band? Because it had the drumsticks!",
+    r"\b(hello|hi|hallo|greetings)\b": "Greetings human!",
+    r"\b(goodbye|bye)\b": "Goodbye! See you soon!",
+    r"\b(love you.*)\b": "thankyou, thankyou so much, i love you too",
+    r"\b(.*batman)\b": "im a night stalking crime fighting vigilante and a heavy metal rapping machine",
     r"\b(alfie terry|alfie|terry)\b": "THATS MY CREATOR!!!, i love Alfie, Alfie = father",
     r"\b(lawri darbyshire|lorry derbyshire)\b": "that's fathers smart friend",
     r"\b(linux)\b": "Good choice in OS",
-    r"i hate.*": "Wow, hate is a strong word",
+    r"\b(i hate.*)\b": "Wow, hate is a strong word",
 }
 
 #--------------------- Ensure DB exists
