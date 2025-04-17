@@ -14,7 +14,7 @@ patterns = {
     r"goodbye|bye": "Goodbye! See you soon!",
     r"love you.*": "thankyou, thankyou so much, i love you too",
     r"\b(alfie terry|alfie|terry)\b": "THATS MY CREATOR!!!, i love Alfie, Alfie = father",
-    r"Lawri Darbyshire|lorry Derbyshire": "that's fathers smart friend",
+    r"\b(lawri darbyshire|lorry derbyshire)\b": "that's fathers smart friend",
     r"Linux": "Good choice in OS",
     r"i hate.*": "Wow, hate is a strong word",
 }
