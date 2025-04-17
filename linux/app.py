@@ -13,6 +13,10 @@ patterns = {
     r"hello|hi|hallo|greetings": "Greetings human!",
     r"goodbye|bye": "Goodbye! See you soon!",
     r"love you.*": "thankyou, thankyou so much, i love you too",
+    r"Alfie.* Terry|Alfie|Terry": "THATS MY CREATOR!!!, i love Alfie, Alfie = father",
+    r"Lawri Darbyshire|lorry Derbyshire": "that's fathers smart friend",
+    r"Linux": "Good choice in OS",
+    r"i hate.*": "Wow, hate is a strong word",
 }
 
 #--------------------- Ensure DB exists
