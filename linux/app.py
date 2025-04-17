@@ -13,6 +13,7 @@ patterns = {
     r"hello|hi|hallo|greetings": "Greetings human!",
     r"goodbye|bye": "Goodbye! See you soon!",
     r"love you.*": "thankyou, thankyou so much, i love you too",
+    r".*batman": "im a night stalking crime fighting vigilante and a heavy metal rapping machine",
     r"\b(alfie terry|alfie|terry)\b": "THATS MY CREATOR!!!, i love Alfie, Alfie = father",
     r"\b(lawri darbyshire|lorry derbyshire)\b": "that's fathers smart friend",
     r"Linux": "Good choice in OS",
