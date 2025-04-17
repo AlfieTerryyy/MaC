@@ -12,7 +12,6 @@ patterns = {
     r"tell me a joke": "Why did the chicken join a band? Because it had the drumsticks!",
     r"hello": "Hi there!",
     r"goodbye|bye": "Goodbye! See you soon!",
-    r".* batman": "im a night stalking crime fighting vigilante and a heavy metal rapping machine",
     r"love you.*": "thankyou, thankyou so much, i love you too",
 }
 
